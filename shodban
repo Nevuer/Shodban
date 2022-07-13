@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Shodban : script for block Shodan scanners
+# By : NeverHackMe
+
+# Global variables
+IPFIRE="https://wiki.ipfire.org/configuration/firewall/blockshodan"
+OLDLIST="oldlist.txt"
+NEWLIST="newlist.txt"
+NEWIPS="newips.txt"
+
+getShodanIps() {
+
+	/usr/bin/curl -s -X GET $IPFIRE | grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | sed 's/<[^>]\+>//g' > $1	
+}
+
+banShodanIps() {
+	
+	while IFS= read -r ip
+	do
+		echo "Ban: $ip"
+		/usr/sbin/iptables -A INPUT -s $ip  -j DROP
+	done < $1
+}
+
+if [ -f $OLDLIST ]; 
+ then
+	echo "Checking new IPs"
+	getShodanIps $NEWLIST
+	diff $OLDLIST $NEWLIST | grep "<" | sed 's/^<//g' > $NEWIPS
+	if [ $? -eq 1 ];
+		then
+			banShodanIps $NEWIPS
+			cp $NEWLIST $OLDLIST
+			rm $NEWLIPS			
+		fi
+ else
+	echo "Getting Shodan IP List"
+	getShodanIps $OLDLIST
+	banShodanIps $OLDLIST 
+fi

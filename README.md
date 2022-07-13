@@ -7,7 +7,8 @@ The script is mainly based on collecting the known IP addresses of Shodan that c
 
 Once the IP addresses have been collected, a block is applied to each of them so that the server blocks incoming requests from Shodan.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Script en Bash que te permite bloquear los escaners de Shodan en tu servidor web Linux.
 
 Si tienes tu dirección IP pública expuesta al mundo, seguramente Shodan ya ha escaneado tu servidor en busca de puertos y versiones abiertas.
@@ -16,4 +17,13 @@ El script se basa principalmente en recoger las direcciones IP conocidas de Shod
 
 Una vez recogidas las direcciones IP, se aplica un bloqueo a cada una de ellas para que el servidor bloquee las peticiones entrantes de Shodan.
 
-Traducción realizada con la versión gratuita del traductor www.DeepL.com/Translator
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BEFORE 
+
+![alt text](https://www.neverhackme.com/wp-content/uploads/2022/07/Shodan-Info-1024x378.png)
+
+AFTER
+
+![alt text](https://www.neverhackme.com/wp-content/uploads/2022/07/Shodan-Block-1024x347.png)
+

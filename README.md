@@ -1,6 +1,6 @@
-# Shodban - https://www.neverhackme.com/block-shodan-scanners-shodban/
+# Shodban - https://www.nevuer.com/block-shodan-scanners-shodban/
 
-![alt text](https://www.neverhackme.com/wp-content/uploads/2022/07/Block-Shodan-Scanners.jpeg)
+![alt text](https://www.nevuer.com/wp-content/uploads/2022/07/Block-Shodan-Scanners.jpeg)
 
 Bash script to block Shodan Scanners on your personal Linux Server
 
